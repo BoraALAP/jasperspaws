@@ -1,4 +1,4 @@
-import {format, isFuture} from 'date-fns'
+import {format, isFuture} from 'date-fns';
 
 export function cn (...args) {
   return args.filter(Boolean).join(' ')
@@ -18,7 +18,7 @@ export function filterOutDocsPublishedInTheFuture ({publishedAt}) {
 }
 
 export function getBlogUrl (publishedAt, slug) {
-  return `/blog/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`
+  return `/dog/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`
 }
 
 export function buildImageObj (source = {asset: {}}) {
@@ -34,12 +34,12 @@ export function buildImageObj (source = {asset: {}}) {
 
 export function toPlainText (blocks) {
   if (!blocks) {
-    return ''
+    return '';
   }
   return blocks
     .map(block => {
       if (block._type !== 'block' || !block.children) {
-        return ''
+        return '';
       }
       return block.children.map(child => child.text).join('')
     })
