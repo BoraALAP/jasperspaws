@@ -1,13 +1,13 @@
-import {format, distanceInWords, differenceInDays} from 'date-fns';
-import React from 'react';
-import {buildImageObj} from '../lib/helpers';
-import {imageUrlFor} from '../lib/image-url';
-import PortableText from '../components/portableText';
+import { format, distanceInWords, differenceInDays } from "date-fns";
+import React from "react";
+import { buildImageObj } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
+import PortableText from "../components/portableText";
 
-function DogPost (props) {
-  const {_rawBody, ages, name, mainImage, publishedAt} = props
+function DogPost(props) {
+  const { _rawBody, ages, name, mainImage, publishedAt } = props;
 
-  console.log(props)
+  console.log(props);
 
   return (
     <article>
@@ -17,14 +17,14 @@ function DogPost (props) {
             src={imageUrlFor(buildImageObj(mainImage))
               .width(1200)
               .height(Math.floor((9 / 16) * 1200))
-              .fit('crop')
-              .auto('format')
+              .fit("crop")
+              .auto("format")
               .url()}
             alt={mainImage.alt}
           />
         </div>
       )}
-      <Container>
+      <div>
         <div>
           <div>
             <h1>{name}</h1>
@@ -35,24 +35,22 @@ function DogPost (props) {
               <div>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do, YYYY')}
+                  : format(new Date(publishedAt), "MMMM Do, YYYY")}
               </div>
             )}
             {ages && (
               <div>
                 <h3>Age</h3>
                 <ul>
-                  {ages.map(({age, _key}) => (
-                    <li key={age._id}>{age.title}</li>
-                  ))}
+                  <li key={ages}>{ages}</li>
                 </ul>
               </div>
             )}
           </aside>
         </div>
-      </Container>
+      </div>
     </article>
-  )
+  );
 }
 
-export default DogPost
+export default DogPost;

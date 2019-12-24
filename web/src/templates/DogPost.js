@@ -77,9 +77,9 @@ const DogPostTemplate = props => {
       )}
 
       {errors && (
-        <Container>
+        <div>
           <GraphQLErrorList errors={errors} />
-        </Container>
+        </div>
       )}
 
       {post && <DogPost {...post} />}
