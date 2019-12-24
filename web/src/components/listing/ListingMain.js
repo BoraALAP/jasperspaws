@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import Filter from "./Filter";
 import Grid from "./Grid";
 import appContext from "../../context/context";
+import styled from "styled-components";
+import media from "styled-media-query";
 
 const ListingMain = ({ postNodes, adoptable }) => {
   const { store } = useContext(appContext);
@@ -55,11 +57,22 @@ const ListingMain = ({ postNodes, adoptable }) => {
   }, [store.filters]);
 
   return (
-    <div>
+    <Container>
       <Filter nodes={usableArray} />
       {usableArray && <Grid title="Adopable Dogs" nodes={usableArray} />}
-    </div>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  display: grid;
+  padding: 5%;
+  grid-gap: 2.5%;
+  grid-auto-flow: row;
+
+  ${media.greaterThan("medium")`
+    grid-template-columns: 30% 67.5%;
+    grid-auto-flow: column;
+  `}
+`;
 export default ListingMain;

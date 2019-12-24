@@ -11,9 +11,7 @@ import {
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
-import Grid from "../components/listing/Grid";
-import Filter from "../components/listing/Filter";
-import appContext from "../context/context";
+
 import ListingMain from "../components/listing/ListingMain";
 
 export const query = graphql`
@@ -114,23 +112,10 @@ const Listing = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <ListingMain postNodes={postNodes} adoptable />
-      </Container>
+
+      <ListingMain postNodes={postNodes} adoptable />
     </Layout>
   );
 };
-
-const Container = styled.div`
-  display: grid;
-  padding: 5%;
-  grid-gap: 2.5%;
-  grid-auto-flow: row;
-
-  ${media.greaterThan("medium")`
-    grid-template-columns: 30% 67.5%;
-    grid-auto-flow: column;
-  `}
-`;
 
 export default Listing;

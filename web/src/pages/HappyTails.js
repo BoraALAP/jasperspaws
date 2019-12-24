@@ -112,23 +112,10 @@ const Listing = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <ListingMain postNodes={postNodes} />
-      </Container>
+
+      <ListingMain postNodes={postNodes} />
     </Layout>
   );
 };
-
-const Container = styled.div`
-  display: grid;
-  padding: 5%;
-  grid-gap: 2.5%;
-  grid-auto-flow: row;
-
-  ${media.greaterThan("medium")`
-    grid-template-columns: 30% 67.5%;
-    grid-auto-flow: column;
-  `}
-`;
 
 export default Listing;

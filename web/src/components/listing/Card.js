@@ -43,7 +43,7 @@ const Container = styled.div`
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${({ theme }) => theme.boxshadow};
   display: grid;
-  max-width: 600px;
+  max-width: 360px;
   transition: box-shadow 0.55s ease-in-out, transform 0.3s ease-in-out;
   &:hover {
     box-shadow: ${({ theme }) => theme.boxshadowhover};

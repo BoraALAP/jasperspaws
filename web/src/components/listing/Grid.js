@@ -27,6 +27,7 @@ const GridS = styled.div`
   grid-template-columns: repeat(2, minmax(140px, 1fr));
   ${media.greaterThan("medium")`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items:center;
   `}
 `;
 
