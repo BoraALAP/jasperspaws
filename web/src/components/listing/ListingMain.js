@@ -66,7 +66,7 @@ const ListingMain = ({ postNodes, adoptable }) => {
 
 const Container = styled.div`
   display: grid;
-  padding: 5%;
+  padding: ${({ theme }) => theme.pagePadding};
   grid-gap: 2.5%;
   grid-auto-flow: row;
 

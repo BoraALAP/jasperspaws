@@ -26,10 +26,14 @@ const Card = props => {
         <TextContainer>
           <Top>
             <h4>{props.name}</h4>
-            <h6>{props.ageWrite ? props.ageWrite : props.ages.map(({ age }) => age.title)}</h6>
+            <h6>
+              {props.ageWrite
+                ? props.ageWrite
+                : props.ages.charAt(0).toUpperCase() + props.ages.slice(1)}
+            </h6>
           </Top>
           <Bottom>
-            <h6>{props.breed}</h6>
+            <h6>{props.breed.charAt(0).toUpperCase() + props.breed.slice(1)}</h6>
             <GoodWith goodWiths={props.goodWiths} />
           </Bottom>
         </TextContainer>
@@ -70,10 +74,6 @@ const Top = styled.div`
   justify-content: center;
   grid-gap: 8px;
 
-  h4 {
-    color: ${({ theme }) => theme.color.five};
-  }
-
   h6 {
     color: ${({ theme }) => theme.color.three};
   }
@@ -92,10 +92,6 @@ const Bottom = styled.div`
 
   text-align: center;
   grid-gap: 8px;
-
-  h6 {
-    color: ${({ theme }) => theme.color.four};
-  }
 
   ${media.greaterThan("small")`
     grid-auto-flow: column;

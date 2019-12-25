@@ -7,72 +7,45 @@ import Layout from "../containers/layout";
 import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
-  query BlogPostTemplateQuery($id: String!) {
+  query DogPostTemplateQuery($id: String!) {
     dog: sanityDog(id: { eq: $id }) {
       id
-      publishedAt
-      foundAt
-
+      ages
       ageWrite
       breed
-
-      weight
+      gender
+      name
       microchipped
       neutered
+      vacinated
+      size
+      weight
+      coatLength
+      goodWiths {
+        goodWith {
+          title
+        }
+      }
       mainImage {
         ...SanityImage
         alt
       }
-      name
-      slug {
-        current
-      }
-
-      _rawBody(resolveReferences: { maxDepth: 5 })
-      authors {
-        _key
-        author {
-          image {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-          }
-          name
-        }
-      }
-      ages
-      size
+      _rawBody(resolveReferences: { maxDepth: 10 })
     }
   }
 `;
 
 const DogPostTemplate = props => {
   const { data, errors } = props;
-  const post = data && data.dog;
+  const dog = data && data.dog;
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
-      {post && (
+      {dog && (
         <SEO
-          title={post.name || "Untitled"}
-          description={toPlainText(post._rawExcerpt)}
-          image={post.mainImage}
+          title={dog.name || "Untitled"}
+          description={toPlainText(dog._rawExcerpt)}
+          image={dog.mainImage}
         />
       )}
 
@@ -82,7 +55,7 @@ const DogPostTemplate = props => {
         </div>
       )}
 
-      {post && <DogPost {...post} />}
+      {dog && <DogPost {...dog} />}
     </Layout>
   );
 };

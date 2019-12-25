@@ -4,53 +4,172 @@ import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import PortableText from "../components/portableText";
 
+import styled from "styled-components";
+import media from "styled-media-query";
+import GoodWith from "../components/listing/GoodWith";
+
 function DogPost(props) {
-  const { _rawBody, ages, name, mainImage, publishedAt } = props;
+  const {
+    _rawBody,
+    mainImage,
+    id,
+    ages,
+    ageWrite,
+    breed,
+    gender,
+    name,
+    microchipped,
+    neutered,
+    vacinated,
+    size,
+    weight,
+    coatLength,
+    goodWiths
+  } = props;
 
   console.log(props);
 
   return (
-    <article>
-      {mainImage && mainImage.asset && (
-        <div>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit("crop")
-              .auto("format")
-              .url()}
-            alt={mainImage.alt}
-          />
-        </div>
-      )}
-      <div>
-        <div>
+    <Container>
+      <Top>
+        {mainImage && mainImage.asset && (
           <div>
-            <h1>{name}</h1>
-            {_rawBody && <PortableText blocks={_rawBody} />}
+            <Img
+              src={imageUrlFor(buildImageObj(mainImage))
+                .width(1200)
+                .height(1200)
+                .auto("format")
+                .url()}
+              alt={mainImage.alt}
+            />
           </div>
-          <aside>
-            {publishedAt && (
-              <div>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), "MMMM Do, YYYY")}
-              </div>
+        )}
+        <TextContainer>
+          <NameBox>
+            <h3>{name}</h3>
+            <h6>{ageWrite ? ageWrite : ages.charAt(0).toUpperCase() + ages.slice(1)}</h6>
+          </NameBox>
+          <div>
+            <SubInfo>
+              {breed && (
+                <Group>
+                  <h6>Breed:</h6>
+                  <p>{breed.charAt(0).toUpperCase() + breed.slice(1)}</p>
+                </Group>
+              )}
+              {gender && (
+                <Group>
+                  <h6>Gender:</h6>
+                  <p>{gender.charAt(0).toUpperCase() + gender.slice(1)}</p>
+                </Group>
+              )}
+              {size && (
+                <Group>
+                  <h6>Size:</h6>
+                  <p>{size.charAt(0).toUpperCase() + size.slice(1)}</p>
+                </Group>
+              )}
+              {coatLength && (
+                <Group>
+                  <h6>Coat Length:</h6>
+                  <p>{coatLength.charAt(0).toUpperCase() + coatLength.slice(1)}</p>
+                </Group>
+              )}
+              {weight && (
+                <Group>
+                  <h6>Weight:</h6>
+                  <p>{weight.charAt(0).toUpperCase() + weight.slice(1)}</p>
+                </Group>
+              )}
+              {goodWiths && goodWiths.length > 0 && (
+                <Group>
+                  <h6>GoodWith:</h6>
+                  <GoodWith goodWiths={goodWiths} withText />
+                </Group>
+              )}
+            </SubInfo>
+            {_rawBody[0].children[0].text !== "" && (
+              <Group>
+                <h6>Description:</h6>
+                {_rawBody && <PortableText blocks={_rawBody} />}
+              </Group>
             )}
-            {ages && (
-              <div>
-                <h3>Age</h3>
-                <ul>
-                  <li key={ages}>{ages}</li>
-                </ul>
-              </div>
-            )}
-          </aside>
-        </div>
-      </div>
-    </article>
+          </div>
+          <BlueContainer>
+            {microchipped && <h6>Microchipped</h6>}
+            {neutered && gender == "male" ? <h6>Neutered</h6> : <h6>Spayed</h6>}
+            {vacinated && <h6>Vacinated</h6>}
+          </BlueContainer>
+        </TextContainer>
+      </Top>
+      <FormContainer></FormContainer>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  padding: ${({ theme }) => theme.pagePadding};
+`;
+
+const Top = styled.div`
+  display: grid;
+
+  ${media.greaterThan("medium")`
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+  `}
+`;
+
+const TextContainer = styled.div`
+  padding: 24px ${({ theme }) => theme.pagePadding};
+  max-width: 600px;
+  ${media.greaterThan("medium")`
+  padding: 0;
+  `}
+`;
+
+const NameBox = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  grid-gap: 12px;
+  align-items: end;
+
+  h6 {
+    color: ${({ theme }) => theme.color.three};
+  }
+  margin-bottom: 24px;
+`;
+
+const SubInfo = styled.div`
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 16px;
+`;
+
+const Group = styled.div``;
+
+const BlueContainer = styled.div`
+  background-color: ${({ theme }) => theme.color.five};
+  border-radius: ${({ theme }) => theme.radius};
+  padding: 8px 24px;
+  display: grid;
+  grid-gap: 24px;
+  grid-auto-flow: column;
+  justify-content: space-evenly;
+  width: fit-content;
+  margin-top: 24px;
+  h6 {
+    color: ${({ theme }) => theme.color.white};
+  }
+`;
+
+const FormContainer = styled.div``;
+
+const Img = styled.img`
+  width: 100%;
+  border-radius: ${({ theme }) => theme.radius};
+`;
 
 export default DogPost;

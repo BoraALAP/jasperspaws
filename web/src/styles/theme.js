@@ -25,7 +25,8 @@ export const LightTheme = {
   boxshadow: "0px 10px 30px rgba(0, 52, 89, 0.1), inset 2px 2px 7px rgba(0, 52, 89, 0.02)",
   boxshadowhover: "0px 14px 33px rgba(0, 52, 89, 0.15), inset 2px 2px 7px rgba(0, 52, 89, 0.05)",
   buttonshadow: "0px 4px 10px rgba(0, 0, 0, 0.07), 2px 2px 5px rgba(0, 0, 0, 0.05)",
-  radius: "10px"
+  radius: "10px",
+  pagePadding: "5%"
 };
 
 export const DarkTheme = {

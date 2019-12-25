@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1,h2,h3,h4{
     font-family:${props => props.theme.font.family.header};
-    color:${props => props.theme.color.main};
+    color:${props => props.theme.color.five};
     margin:0;
   }
 
@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1{
-    font-size:2em; 
+    font-size:2.125em; 
     font-weight:${({ theme }) => theme.font.weight.bolditalic};
 
     ${media.greaterThan("medium")`
@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2{
-    font-size:1.5em;
+    font-size:1.875em;
     font-weight:${({ theme }) => theme.font.weight.bold};
 
     ${media.greaterThan("medium")`
@@ -41,8 +41,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h3{
-    font-size:1.25em;
-    line-height:1.6em;
+    font-size:1.5em;
     font-weight:${({ theme }) => theme.font.weight.bold};
     
     ${media.greaterThan("medium")`
@@ -51,25 +50,28 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h4{
-    font-size:1em;
+    font-size:1.125em;
     font-weight:${({ theme }) => theme.font.weight.bold};
+    
     
     ${media.greaterThan("medium")`
       font-size:1.5em;
     `}
   }
   h5{
-    font-size:0.875em;
+    font-size:0.95em;
     font-weight:${({ theme }) => theme.font.weight.bold};
     
     ${media.greaterThan("medium")`
       font-size:1em;
     `}
   }
+
   
   h6{
-    font-size:0.75em;
+    font-size:0.875em;
     font-weight:${({ theme }) => theme.font.weight.semibold}; 
+    color: ${({ theme }) => theme.color.four};
 
     ${media.greaterThan("medium")`
       font-size:0.875em; 
@@ -90,6 +92,8 @@ const GlobalStyle = createGlobalStyle`
     font-size:0.875em;
     color:${props => props.theme.color.type};
     line-height:2em;
+    margin:0;
+
     
     ${media.greaterThan("medium")`
       
