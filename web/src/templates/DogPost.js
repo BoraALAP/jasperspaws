@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
-import DogPost from "../pages/DogPost";
+import DogPostWeb from "../pages/DogPostWeb";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { toPlainText } from "../lib/helpers";
@@ -56,7 +56,7 @@ const DogPostTemplate = props => {
         </div>
       )}
 
-      {dog && <DogPost {...dog} />}
+      {dog && <DogPostWeb {...dog} />}
     </Layout>
   );
 };

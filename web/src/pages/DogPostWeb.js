@@ -1,4 +1,3 @@
-import { format, distanceInWords, differenceInDays } from "date-fns";
 import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
@@ -8,7 +7,7 @@ import styled from "styled-components";
 import media from "styled-media-query";
 import GoodWith from "../components/listing/GoodWith";
 
-const DogPost = props => {
+const DogPostWeb = props => {
   const {
     _rawBody,
     mainImage,
@@ -172,4 +171,4 @@ const Img = styled.img`
   border-radius: ${({ theme }) => theme.radius};
 `;
 
-export default DogPost;
+export default DogPostWeb;
