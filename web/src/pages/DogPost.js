@@ -136,6 +136,7 @@ const NameBox = styled.div`
   align-items: end;
 
   h6 {
+    color: ${({ theme }) => theme.color.three};
   }
   margin-bottom: 24px;
 `;
@@ -150,6 +151,8 @@ const SubInfo = styled.div`
 const Group = styled.div``;
 
 const BlueContainer = styled.div`
+  background-color: ${({ theme }) => theme.color.five};
+  border-radius: ${({ theme }) => theme.radius};
   padding: 8px 24px;
   display: grid;
   grid-gap: 24px;
@@ -158,6 +161,7 @@ const BlueContainer = styled.div`
   width: fit-content;
   margin-top: 24px;
   h6 {
+    color: ${({ theme }) => theme.color.white};
   }
 `;
 
@@ -165,6 +169,7 @@ const FormContainer = styled.div``;
 
 const Img = styled.img`
   width: 100%;
+  border-radius: ${({ theme }) => theme.radius};
 `;
 
 export default DogPost;
