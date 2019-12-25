@@ -24,6 +24,7 @@ export const query = graphql`
       goodWiths {
         goodWith {
           title
+          _id
         }
       }
       mainImage {

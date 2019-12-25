@@ -12,6 +12,9 @@ const GoodWith = props => {
   const [openCat, setOpenCat] = React.useState(false);
   const [openDog, setOpenDog] = React.useState(false);
   const [openKid, setOpenKid] = React.useState(false);
+
+  console.log(props.goodWiths);
+
   const info = [
     {
       title: "Cats",
