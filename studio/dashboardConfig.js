@@ -25,7 +25,7 @@ export default {
                 },
                 {
                   buildHookId: '5deeaa0dcf91328c4931851b',
-                  title: 'Blog Website',
+                  title: 'Website',
                   name: 'jasperspaws',
                   apiId: '2c3f90e6-5c19-4f5c-b9a2-c494ca5dda6e'
                 }
@@ -46,7 +46,7 @@ export default {
     {name: 'project-users', layout: {height: 'auto'}},
     {
       name: 'document-list',
-      options: {title: 'Recent blog posts', order: '_createdAt desc', types: ['post']},
+      options: {title: 'Resent Pups', order: '_createdAt desc', types: ['dog']},
       layout: {width: 'medium'}
     }
   ]
