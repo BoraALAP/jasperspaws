@@ -8,7 +8,7 @@ import styled from "styled-components";
 import media from "styled-media-query";
 import GoodWith from "../components/listing/GoodWith";
 
-function DogPost(props) {
+const DogPost = props => {
   const {
     _rawBody,
     mainImage,
@@ -47,7 +47,7 @@ function DogPost(props) {
         <TextContainer>
           <NameBox>
             <h3>{name}</h3>
-            <h6>{ageWrite ? ageWrite : ages.charAt(0).toUpperCase() + ages.slice(1)}</h6>
+            <h6>{ageWrite ? ageWrite : ages && ages.charAt(0).toUpperCase() + ages.slice(1)}</h6>
           </NameBox>
           <div>
             <SubInfo>
@@ -88,10 +88,10 @@ function DogPost(props) {
                 </Group>
               )}
             </SubInfo>
-            {_rawBody[0].children[0].text !== "" && (
+            {_rawBody && (
               <Group>
                 <h6>Description:</h6>
-                {_rawBody && <PortableText blocks={_rawBody} />}
+                <PortableText blocks={_rawBody} />
               </Group>
             )}
           </div>
@@ -105,7 +105,7 @@ function DogPost(props) {
       <FormContainer></FormContainer>
     </Container>
   );
-}
+};
 
 const Container = styled.div`
   padding: ${({ theme }) => theme.pagePadding};
@@ -136,7 +136,6 @@ const NameBox = styled.div`
   align-items: end;
 
   h6 {
-    color: ${({ theme }) => theme.color.three};
   }
   margin-bottom: 24px;
 `;
@@ -151,8 +150,6 @@ const SubInfo = styled.div`
 const Group = styled.div``;
 
 const BlueContainer = styled.div`
-  background-color: ${({ theme }) => theme.color.five};
-  border-radius: ${({ theme }) => theme.radius};
   padding: 8px 24px;
   display: grid;
   grid-gap: 24px;
@@ -161,7 +158,6 @@ const BlueContainer = styled.div`
   width: fit-content;
   margin-top: 24px;
   h6 {
-    color: ${({ theme }) => theme.color.white};
   }
 `;
 
@@ -169,7 +165,6 @@ const FormContainer = styled.div``;
 
 const Img = styled.img`
   width: 100%;
-  border-radius: ${({ theme }) => theme.radius};
 `;
 
 export default DogPost;
