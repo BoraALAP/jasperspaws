@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
-import DogPostWeb from "../pages/DogPostWeb";
+import DogPostWeb from "../components/pageTemp/DogPostWeb";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { toPlainText } from "../lib/helpers";

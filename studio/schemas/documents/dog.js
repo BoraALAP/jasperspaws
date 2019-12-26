@@ -1,9 +1,17 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns'
 
 export default {
   name: 'dog',
   type: 'document',
   title: 'Dog',
+  initialValue: () => ({
+    adopted: false,
+    publishedAt: new Date().toISOString(),
+    foundAt: new Date().toISOString(),
+    microchipped: false,
+    vacinated: false,
+    neutered: false
+  }),
   fields: [
     {
       name: 'name',
@@ -66,10 +74,10 @@ export default {
       validation: Rule => Rule.required(),
       options: {
         list: [
-          {title: 'Puppy', value: 'puppy'},
-          {title: 'Young', value: 'young'},
-          {title: 'Adult', value: 'adult'},
-          {title: 'Senior', value: 'senior'}
+          { title: 'Puppy', value: 'puppy' },
+          { title: 'Young', value: 'young' },
+          { title: 'Adult', value: 'adult' },
+          { title: 'Senior', value: 'senior' }
         ], // <-- predefined values
         layout: 'radio' // <-- defaults to 'dropdown'
       }
@@ -93,8 +101,8 @@ export default {
       title: 'Gender',
       options: {
         list: [
-          {title: 'Female', value: 'female'},
-          {title: 'Male', value: 'male'}
+          { title: 'Female', value: 'female' },
+          { title: 'Male', value: 'male' }
         ], // <-- predefined values
         layout: 'radio' // <-- defaults to 'dropdown'
       }
@@ -105,10 +113,10 @@ export default {
       title: 'Size',
       options: {
         list: [
-          {title: 'Small', value: 'small'},
-          {title: 'Medium', value: 'medium'},
-          {title: 'Large', value: 'large'},
-          {title: 'Extra Large', value: 'extra large'}
+          { title: 'Small', value: 'small' },
+          { title: 'Medium', value: 'medium' },
+          { title: 'Large', value: 'large' },
+          { title: 'Extra Large', value: 'extra large' }
         ], // <-- predefined values
         layout: 'radio' // <-- defaults to 'dropdown'
       }
@@ -125,10 +133,10 @@ export default {
       title: 'Coat Length',
       options: {
         list: [
-          {title: 'Hairless', value: 'hairless'},
-          {title: 'Short', value: 'short'},
-          {title: 'Medium', value: 'medium'},
-          {title: 'Long', value: 'long'}
+          { title: 'Hairless', value: 'hairless' },
+          { title: 'Short', value: 'short' },
+          { title: 'Medium', value: 'medium' },
+          { title: 'Long', value: 'long' }
         ], // <-- predefined values
         layout: 'radio' // <-- defaults to 'dropdown'
       }
@@ -204,7 +212,7 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
+    prepare({ title = 'No title', publishedAt, slug = {}, media }) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {

@@ -33,8 +33,10 @@ const Card = props => {
             </h6>
           </Top>
           <Bottom>
-            <h6>{props.breed.charAt(0).toUpperCase() + props.breed.slice(1)}</h6>
-            <GoodWith goodWiths={props.goodWiths} />
+            {props.breed && <h6>{props.breed.charAt(0).toUpperCase() + props.breed.slice(1)}</h6>}
+            {props.goodWiths && props.goodWiths.length > 0 && (
+              <GoodWith goodWiths={props.goodWiths} />
+            )}
           </Bottom>
         </TextContainer>
       </Container>

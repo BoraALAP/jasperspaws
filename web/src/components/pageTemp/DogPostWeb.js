@@ -1,11 +1,11 @@
 import React from "react";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
-import PortableText from "../components/portableText";
+import { buildImageObj } from "../../lib/helpers";
+import { imageUrlFor } from "../../lib/image-url";
+import PortableText from "../portableText";
 
 import styled from "styled-components";
 import media from "styled-media-query";
-import GoodWith from "../components/listing/GoodWith";
+import GoodWith from "../listing/GoodWith";
 
 const DogPostWeb = props => {
   const {
@@ -94,11 +94,15 @@ const DogPostWeb = props => {
               </Group>
             )}
           </div>
-          <BlueContainer>
-            {microchipped && <h6>Microchipped</h6>}
-            {neutered && gender == "male" ? <h6>Neutered</h6> : <h6>Spayed</h6>}
-            {vacinated && <h6>Vacinated</h6>}
-          </BlueContainer>
+          {microchipped ||
+            neutered ||
+            (vacinated && (
+              <BlueContainer>
+                {microchipped && <h6>Microchipped</h6>}
+                {neutered && (gender == "male" ? <h6>Neutered</h6> : <h6>Spayed</h6>)}
+                {vacinated && <h6>Vacinated</h6>}
+              </BlueContainer>
+            ))}
         </TextContainer>
       </Top>
       <FormContainer></FormContainer>
