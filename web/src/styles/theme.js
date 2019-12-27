@@ -9,7 +9,8 @@ export const LightTheme = {
       bolditalic: "700i",
       regular: "400",
       regularitalic: "400i",
-      semibold: "600"
+      semibold: "600",
+      medium: "500"
     }
   },
   color: {
@@ -52,5 +53,5 @@ export const DarkTheme = {
   shadow_lvl1: "0px 1px 3px hsla(0,0%,0%,0.2)",
   shadow_small:
     "0px 2px 1px -1px hsla(0,0%,100%,0.2), 0px 1px 1px 0px hsla(0,0%,100%,0.14), 0px 1px 3px 0px hsla(0,0%,100%,0.12)",
-  radius: "16px"
+  radius: "1em"
 };

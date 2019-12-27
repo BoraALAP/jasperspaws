@@ -23,7 +23,7 @@ const Container = styled.div``;
 
 const GridS = styled.div`
   display: grid;
-  grid-gap: 16px 2.5%;
+  grid-gap: 1em 2.5%;
   grid-template-columns: repeat(2, minmax(140px, 1fr));
   ${media.greaterThan("medium")`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

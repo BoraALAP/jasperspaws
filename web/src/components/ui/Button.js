@@ -13,7 +13,7 @@ const Container = styled.div`
   padding: 12px 32px;
   background-color: ${({ theme }) => theme.color.five};
   font-weight: ${({ theme }) => theme.font.weight.semibold};
-  font-size: 16px;
+  font-size: 1em;
   border-radius: ${({ theme }) => theme.radius};
   color: ${({ theme }) => theme.color.white};
   text-align: center;

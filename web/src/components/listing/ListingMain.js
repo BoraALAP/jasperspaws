@@ -1,14 +1,26 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useLayoutEffect } from "react";
 import Filter from "./Filter";
 import Grid from "./Grid";
 import appContext from "../../context/context";
 import styled from "styled-components";
 import media from "styled-media-query";
+import Modal from "react-modal";
+import Button from "../ui/Button";
 
 const ListingMain = ({ postNodes, adoptable }) => {
-  const { store } = useContext(appContext);
+  const { store, dispatch } = useContext(appContext);
 
   const [usableArray, setUsableArray] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [size, setSize] = useState(0);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize(window.innerWidth);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   const filtered = adoptable
     ? postNodes.filter(item => !item.adopted)
@@ -56,9 +68,39 @@ const ListingMain = ({ postNodes, adoptable }) => {
     filterIt();
   }, [store.filters]);
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const onClear = () => {
+    dispatch({ type: "CLEAR_FILTERS" });
+    dispatch({ type: "SAVE_FILTERS" });
+  };
+
   return (
     <Container>
-      <Filter nodes={usableArray} />
+      {size < 768 ? (
+        <div>
+          <Button onClick={openModal}>Filters</Button>
+          <Modal
+            isOpen={modalIsOpen}
+            onAfterOpen={openModal}
+            onRequestClose={closeModal}
+            // style={customStyles}
+            contentLabel="Filter Modal"
+            ariaHideApp={false}
+          >
+            <Filter nodes={usableArray} />
+          </Modal>
+          {store.filterExist && <Button onClick={onClear}>Clear Filters</Button>}
+        </div>
+      ) : (
+        <Filter nodes={usableArray} />
+      )}
       {usableArray && <Grid title="Adopable Dogs" nodes={usableArray} />}
     </Container>
   );

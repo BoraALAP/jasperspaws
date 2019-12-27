@@ -1,4 +1,5 @@
 export const initialState = {
+  filterExist: false,
   filters: {
     breed: [],
     ages: [],
@@ -36,7 +37,11 @@ const appReducer = (state = initialState, actions) => {
           coatLength: []
         }
       };
-
+    case "UPDATE_FILTER_EXIST":
+      return {
+        ...state,
+        filterExist: actions.payload
+      };
     default:
       return state;
   }

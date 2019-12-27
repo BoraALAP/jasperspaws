@@ -7,7 +7,6 @@ import Button from "../ui/Button";
 
 const Filter = props => {
   const { store, dispatch } = useContext(appContext);
-  const [filters, setFilters] = useState(false);
 
   useEffect(() => {
     if (
@@ -18,9 +17,9 @@ const Filter = props => {
       store.filters.goodWiths.length > 0 ||
       store.filters.gender.length > 0
     ) {
-      setFilters(true);
+      dispatch({ type: "UPDATE_FILTER_EXIST", payload: true });
     } else {
-      setFilters(false);
+      dispatch({ type: "UPDATE_FILTER_EXIST", payload: false });
     }
   }, [store.filters]);
 
@@ -65,7 +64,6 @@ const Filter = props => {
   return (
     <Container>
       <H3>Filters</H3>
-      {filters && <Button onClick={onClear}>Clear Filters</Button>}
       <List>
         <Group>
           <label>Breed</label>
@@ -141,6 +139,7 @@ const Filter = props => {
           />
         </Group>
       </List>
+      {store.filterExist && <Button onClick={onClear}>Clear Filters</Button>}
     </Container>
   );
 };

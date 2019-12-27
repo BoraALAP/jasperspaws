@@ -11,6 +11,11 @@ import GoodWith from "./GoodWith";
 const Card = props => {
   return (
     <Link to={getBlogUrl(props.publishedAt, props.slug.current)} key={props._id}>
+      {/* <Link
+      to= {{ pathname: `${getBlogUrl(props.publishedAt, props.slug.current)}`,
+      state = { prevPath: location.pathname }}}
+      key={props._id}
+      >  */}
       <Container>
         {props.mainImage && props.mainImage.asset && (
           <Img
@@ -50,6 +55,7 @@ const Container = styled.div`
   box-shadow: ${({ theme }) => theme.boxshadow};
   display: grid;
   max-width: 360px;
+  height: 100%;
   transition: box-shadow 0.55s ease-in-out, transform 0.3s ease-in-out;
   &:hover {
     box-shadow: ${({ theme }) => theme.boxshadowhover};
@@ -80,7 +86,7 @@ const Top = styled.div`
     color: ${({ theme }) => theme.color.three};
   }
 
-  ${media.greaterThan("small")`
+  ${media.greaterThan("medium")`
     grid-auto-flow: column;
     justify-content: space-between;
   `}
@@ -95,7 +101,7 @@ const Bottom = styled.div`
   text-align: center;
   grid-gap: 8px;
 
-  ${media.greaterThan("small")`
+  ${media.greaterThan("medium")`
     grid-auto-flow: column;
     justify-content: space-between;
   `}

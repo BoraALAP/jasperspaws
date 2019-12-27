@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     margin: 0;
-    font-size: 16px;
+    font-size: 1em;
     font-family:${props => props.theme.font.family.body};
     color:${props => props.theme.color.type};
     background-color: ${props => props.theme.color.bg};
@@ -109,6 +109,10 @@ const GlobalStyle = createGlobalStyle`
   label{
     color: ${({ theme }) => theme.color.five};
     font-weight: ${({ theme }) => theme.font.weight.semibold};
+  }
+
+  .activeMenuItem{
+    font-weight: ${({ theme }) => theme.font.weight.bold};
   }
 
 `;

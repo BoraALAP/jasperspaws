@@ -2,7 +2,7 @@ import React from "react";
 
 const strokeStyle = { vectorEffect: "non-scaling-stroke" };
 
-const HamburgerIcon = () => (
+const CrossIcon = () => (
   <svg
     viewBox="0 0 25 25"
     fill="none"
@@ -17,4 +17,4 @@ const HamburgerIcon = () => (
   </svg>
 );
 
-export default HamburgerIcon;
+export default CrossIcon;

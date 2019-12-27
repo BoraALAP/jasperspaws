@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import Tooltip from "@material-ui/core/Tooltip";
 
-import baby from "../../assets/icon/baby-solid.svg";
 import Cats from "../../assets/icon/cat-solid.svg";
 import Kids from "../../assets/icon/child-solid.svg";
 import Dogs from "../../assets/icon/dog-solid.svg";
@@ -12,8 +11,6 @@ const GoodWith = props => {
   const [openCat, setOpenCat] = React.useState(false);
   const [openDog, setOpenDog] = React.useState(false);
   const [openKid, setOpenKid] = React.useState(false);
-
-  console.log(props.goodWiths);
 
   const info = [
     {
