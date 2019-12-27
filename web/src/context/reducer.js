@@ -1,4 +1,5 @@
 export const initialState = {
+  siteInfo: {},
   filterExist: false,
   filters: {
     breed: [],
@@ -12,6 +13,11 @@ export const initialState = {
 
 const appReducer = (state = initialState, actions) => {
   switch (actions.type) {
+    case "SET_SITE_TITLE":
+      return {
+        ...state,
+        siteInfo: actions.payload
+      };
     case "GET_FILTERS":
       const res = localStorage.getItem("myValueInLocalStorage");
       return {

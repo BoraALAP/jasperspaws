@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 import DogPostWeb from "../components/post/DogPostWeb";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import Layout from "../components/global/Layout";
 import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
@@ -41,10 +41,10 @@ const DogPostTemplate = props => {
   const dog = data && data.dog;
   return (
     <Layout>
-      {errors && <SEO title="GraphQL Error" />}
+      {errors && <SEO pageTitle="GraphQL Error" />}
       {dog && (
         <SEO
-          title={dog.name || "Untitled"}
+          pageTitle={dog.name || "Untitled"}
           description={toPlainText(dog._rawExcerpt)}
           image={dog.mainImage}
         />

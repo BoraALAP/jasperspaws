@@ -10,7 +10,7 @@ import {
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import Layout from "../components/global/Layout";
 
 import ListingMain from "../components/listing/ListingMain";
 
@@ -111,7 +111,7 @@ const Listing = props => {
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO pageTitle="Adoptable" />
 
       <ListingMain postNodes={postNodes} adoptable />
     </Layout>

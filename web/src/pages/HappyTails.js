@@ -10,8 +10,9 @@ import {
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import Layout from "../components/global/Layout";
 
+import ListingMain2 from "../components/listing/ListingMain2";
 import ListingMain from "../components/listing/ListingMain";
 
 export const query = graphql`
@@ -111,9 +112,9 @@ const Listing = props => {
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO pageTitle="Happy Tails" />
 
-      <ListingMain postNodes={postNodes} />
+      <ListingMain1 postNodes={postNodes} />
     </Layout>
   );
 };

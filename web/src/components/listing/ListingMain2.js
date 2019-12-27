@@ -7,7 +7,7 @@ import media from "styled-media-query";
 import Modal from "react-modal";
 import Button from "../ui/Button";
 
-const ListingMain = ({ postNodes, adoptable }) => {
+const ListingMain2 = ({ postNodes, adoptable }) => {
   const { store, dispatch } = useContext(appContext);
 
   const [usableArray, setUsableArray] = useState([]);
@@ -22,12 +22,12 @@ const ListingMain = ({ postNodes, adoptable }) => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const filtered = adoptable
+  const filteredArray = adoptable
     ? postNodes.filter(item => !item.adopted)
     : postNodes.filter(item => item.adopted);
 
   useEffect(() => {
-    setUsableArray(filtered);
+    setUsableArray(filteredArray);
   }, []);
 
   useEffect(() => {
@@ -54,36 +54,33 @@ const ListingMain = ({ postNodes, adoptable }) => {
           k => Array.isArray(store.filters[k]) && store.filters[k].length !== 0 && true
         )
       ) {
-        const arr = filtered.filter(dog => {
-          return filterKeys.every(key => {
-            if (Array.isArray(store.filters[key]) && store.filters[key].length !== 0) {
-              if (key === "breed") {
-                return dog[key].toLowerCase() == store.filters[key].map(filter => filter.value);
-              } else if (key === "goodWiths") {
-                return dog[key].some(sub => {
-                  console.log(
-                    dog,
-                    sub.goodWith.title.toLowerCase() ==
-                      store.filters[key].map(filter => filter.value)
-                  );
-
-                  return (
-                    sub.goodWith.title.toLowerCase() ==
-                    store.filters[key].map(filter => filter.value)
-                  );
-                });
-              } else {
-                return dog[key] == store.filters[key].map(filter => filter.value);
-              }
-            } else {
-              return true;
-            }
-          });
+        let initialArray = [];
+        filterKeys.map(key => {
+          if (Array.isArray(store.filters[key]) && store.filters[key].length !== 0) {
+            store.filters[key].map(filter => {
+              filteredArray.map(dog => {
+                if (key === "breed" && dog[key].toLowerCase() == filter.value) {
+                  initialArray = [...initialArray, dog];
+                  setUsableArray([...initialArray]);
+                } else if (dog[key] == filter.value) {
+                  initialArray = [...initialArray, dog];
+                  setUsableArray([...initialArray]);
+                }
+              });
+            });
+          } else {
+            return false;
+          }
         });
 
-        setUsableArray([...arr]);
+        // const together = [...usableArray, ...arr];
+        // const newArr = together.filter((elem, pos, arr) => {
+        //   if (elem !== null && elem !== undefined) {
+        //     return arr.indexOf(elem) == pos;
+        //   }
+        // });
       } else {
-        setUsableArray([...filtered]);
+        setUsableArray([...filteredArray]);
       }
     };
     filterIt();
@@ -120,7 +117,7 @@ const ListingMain = ({ postNodes, adoptable }) => {
           {store.filterExist && <Button onClick={onClear}>Clear Filters</Button>}
         </div>
       ) : (
-        <Filter nodes={usableArray} />
+        <Filter nodes={filteredArray} />
       )}
       {usableArray && <Grid title="Adopable Dogs" nodes={usableArray} />}
     </Container>
@@ -138,4 +135,4 @@ const Container = styled.div`
     grid-auto-flow: column;
   `}
 `;
-export default ListingMain;
+export default ListingMain2;

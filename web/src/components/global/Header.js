@@ -5,7 +5,7 @@ import { cn } from "../../lib/helpers";
 import styled from "styled-components";
 import media from "styled-media-query";
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
+const Header = ({ siteTitle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -29,7 +29,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
         </CrossMenu>
         <Ul>
           <li>
-            <LinkS to="/Listing/" activeClassName="activeMenuItem">
+            <LinkS to="/Adoptable/" activeClassName="activeMenuItem">
               Adoptable
             </LinkS>
           </li>
@@ -139,7 +139,7 @@ const CrossMenu = styled.button`
 
 const LinkS = styled(Link)`
   color: ${({ theme }) => theme.color.five};
-  font-weight: ${({ theme }) => theme.font.weight.medium};
+
   font-size: 0.875em;
 `;
 

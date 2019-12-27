@@ -1,14 +1,14 @@
-import React from 'react';
-import {graphql, Link} from 'gatsby';
+import React, { useEffect } from "react";
+
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
-} from '../lib/helpers';
+} from "../lib/helpers";
 
-import GraphQLErrorList from '../components/graphql-error-list';
-import SEO from '../components/seo';
-import Layout from '../containers/layout';
+import GraphQLErrorList from "../components/graphql-error-list";
+import SEO from "../components/seo";
+import Layout from "../components/global/Layout";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -18,33 +18,33 @@ export const query = graphql`
       keywords
     }
   }
-`
+`;
 
 const IndexPage = props => {
-  const {data, errors} = props
+  const { data, errors } = props;
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
-  const site = (data || {}).site
+  const site = (data || {}).site;
+  console.log(site);
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    )
+    );
   }
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Link to='/Listing'>Listing</Link>
+      <SEO pageTitle="Home" />
     </Layout>
-  )
+  );
 };
 
-export default IndexPage
+export default IndexPage;

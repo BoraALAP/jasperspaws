@@ -104,6 +104,10 @@ const GlobalStyle = createGlobalStyle`
     text-decoration:none;
     color:inherit;
     color:${props => props.theme.color.type};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
+    &.activeMenuItem{
+    font-weight: ${({ theme }) => theme.font.weight.bold};
+  }
   }
 
   label{
@@ -111,9 +115,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: ${({ theme }) => theme.font.weight.semibold};
   }
 
-  .activeMenuItem{
-    font-weight: ${({ theme }) => theme.font.weight.bold};
-  }
+  
 
 `;
 

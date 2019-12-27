@@ -9,21 +9,6 @@ const Filter = props => {
   const { store, dispatch } = useContext(appContext);
 
   useEffect(() => {
-    if (
-      store.filters.breed.length > 0 ||
-      store.filters.size.length > 0 ||
-      store.filters.ages.length > 0 ||
-      store.filters.coatLength.length > 0 ||
-      store.filters.goodWiths.length > 0 ||
-      store.filters.gender.length > 0
-    ) {
-      dispatch({ type: "UPDATE_FILTER_EXIST", payload: true });
-    } else {
-      dispatch({ type: "UPDATE_FILTER_EXIST", payload: false });
-    }
-  }, [store.filters]);
-
-  useEffect(() => {
     if (localStorage.getItem("myValueInLocalStorage")) {
       dispatch({ type: "GET_FILTERS" });
     }
