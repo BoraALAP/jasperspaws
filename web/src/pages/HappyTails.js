@@ -114,7 +114,7 @@ const Listing = props => {
     <Layout>
       <SEO pageTitle="Happy Tails" />
 
-      <ListingMain1 postNodes={postNodes} />
+      <ListingMain postNodes={postNodes} />
     </Layout>
   );
 };
