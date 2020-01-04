@@ -4,6 +4,7 @@ import Icon from "../../assets/icon";
 import { cn } from "../../lib/helpers";
 import styled from "styled-components";
 import media from "styled-media-query";
+import logo from "../../assets/jaspers_paw_logo.png";
 
 const Header = ({ siteTitle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ const Header = ({ siteTitle }) => {
     <Container>
       <Logo>
         <Link to="/" activeClassName="activeMenuItem">
-          {siteTitle}
+          <img src={logo} alt={siteTitle} />
         </Link>
       </Logo>
 
@@ -124,6 +125,12 @@ const Ul = styled.ul`
 
 const HamMenu = styled.button`
   display: grid;
+  width: 44px;
+  height: 44px;
+  outline: none;
+  border: none;
+  padding: 8px;
+  background: transparent;
   ${media.greaterThan("medium")`
     display:none;
   `}
@@ -132,6 +139,12 @@ const HamMenu = styled.button`
 const CrossMenu = styled.button`
   color: ${({ theme }) => theme.color.white};
   display: grid;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  outline: none;
+  border: none;
+  background: transparent;
   ${media.greaterThan("medium")`
     display:none;
   `}
