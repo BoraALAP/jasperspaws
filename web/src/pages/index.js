@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
-
+import React, { useContext } from "react";
+import { graphql } from "gatsby";
+import styled from "styled-components";
+import media from "styled-media-query";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -10,18 +12,82 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../components/global/Layout";
 
+import ListingMainHome from "../components/listing/ListingMainHome";
+import Comingsoon from "../components/comingsoon";
+
 export const query = graphql`
-  query IndexPageQuery {
+  fragment SanityImage on SanityMainImage {
+    crop {
+      _key
+      _type
+      top
+      bottom
+      left
+      right
+    }
+    hotspot {
+      _key
+      _type
+      x
+      y
+      height
+      width
+    }
+    asset {
+      _id
+    }
+  }
+
+  query ListingPage {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
+    }
+    dog: allSanityDog(
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    ) {
+      edges {
+        node {
+          _id
+          adopted
+          ageWrite
+          ages
+          breed
+          id
+          goodWiths {
+            goodWith {
+              _id
+              title
+            }
+            _key
+          }
+          gender
+          coatLength
+          microchipped
+          name
+          neutered
+          size
+          vacinated
+          slug {
+            current
+          }
+          publishedAt
+          mainImage {
+            ...SanityImage
+            alt
+          }
+        }
+      }
     }
   }
 `;
 
 const IndexPage = props => {
   const { data, errors } = props;
+
+  // const { store, dispatch } = useContext(appContext);
 
   if (errors) {
     return (
@@ -32,7 +98,11 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site;
-  console.log(site);
+  const postNodes = (data || {}).dog
+    ? mapEdgesToNodes(data.dog)
+        .filter(filterOutDocsWithoutSlugs)
+        .filter(filterOutDocsPublishedInTheFuture)
+    : [];
 
   if (!site) {
     throw new Error(
@@ -42,7 +112,9 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO pageTitle="Home" />
+      <SEO pageTitle="Adoptable" />
+      <Comingsoon />
+      <ListingMainHome postNodes={postNodes} adoptable />
     </Layout>
   );
 };

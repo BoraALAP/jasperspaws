@@ -37,7 +37,7 @@ export const query = graphql`
     }
   }
 
-  query ListingPage {
+  query ListingPage2 {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description

@@ -16,6 +16,7 @@ export const LightTheme = {
   color: {
     bg: "hsla(0, 0%, 100% ,1)", // Beyaz
     bg_low: "hsla(0, 0%, 100%, 0.8)", // Beyaz 0.8
+    two_bg: "hsla(195,100%,44%,0.2)",
     five: "hsla(195,100%,6%,1)",
     four: "hsla(205,100%,17%,1)",
     three: "hsla(195,100%,33%,1)",
