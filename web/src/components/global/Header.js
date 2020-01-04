@@ -29,21 +29,21 @@ const Header = ({ siteTitle }) => {
           <Icon symbol="cross" />
         </CrossMenu>
         <Ul>
-          <li>
+          {/* <li>
             <LinkS to="/Adoptable/" activeClassName="activeMenuItem">
               Adoptable
             </LinkS>
-          </li>
+          </li> */}
           <li>
             <LinkS to="/Adoption/" activeClassName="activeMenuItem">
               Adoption
             </LinkS>
           </li>
-          <li>
+          {/* <li>
             <LinkS to="/HappyTails/" activeClassName="activeMenuItem">
               Happy Tails
             </LinkS>
-          </li>
+          </li> */}
           <li>
             <LinkS to="/About/" activeClassName="activeMenuItem">
               About
@@ -85,7 +85,7 @@ const Nav = styled.div`
   position: absolute;
   box-sizing: border-box;
   padding: ${({ theme }) => theme.pagePadding};
-  transform: translateX(-100%);
+  transform: translateY(-100%);
   transition: all 0.5s ease-in-out;
   background-color: ${({ theme }) => theme.color.five};
   top: 0;
@@ -145,6 +145,7 @@ const CrossMenu = styled.button`
   outline: none;
   border: none;
   background: transparent;
+  justify-self: end;
   ${media.greaterThan("medium")`
     display:none;
   `}
