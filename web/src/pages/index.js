@@ -12,7 +12,7 @@ import SEO from "../components/seo";
 import Layout from "../components/global/Layout";
 
 import ListingMainHome from "../components/listing/ListingMainHome";
-import Comingsoon from "../components/comingsoon";
+import Comingsoon from "../components/Comingsoon";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
