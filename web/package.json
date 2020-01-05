@@ -39,8 +39,9 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.8.0",
+    "babel-plugin-styled-components": "^1.10.6",
     "gatsby-image": "^2.0.41",
-    
+    "gatsby-plugin-styled-components": "^3.1.16",
     "styled-components": "^4.4.1",
     "styled-media-query": "^2.1.2"
   }
