@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import styled from "styled-components";
-import media from "styled-media-query";
+
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -112,7 +111,7 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO pageTitle="Adoptable" />
+      <SEO pageTitle="Jasper's Paw" />
       <Comingsoon />
       <ListingMainHome postNodes={postNodes} adoptable />
     </Layout>
