@@ -1,7 +1,6 @@
 import { Link } from "gatsby";
 import React, { useState, useLayoutEffect } from "react";
 import Icon from "../../assets/icon";
-import { cn } from "../../lib/helpers";
 import styled from "styled-components";
 import media from "styled-media-query";
 import logo from "../../assets/jaspers_paw_logo.png";

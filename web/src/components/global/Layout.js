@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components";
 import { LightTheme, DarkTheme } from "../../styles/theme";
 import GlobalStyle from "../../styles/global";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const query = graphql`
   query SiteTitleQuery {
@@ -36,14 +37,7 @@ const Layout = ({ children }) => {
                 <GlobalStyle />
                 <Header siteTitle={data.site.title} />
                 <div>{children}</div>
-                <footer>
-                  <div>
-                    <div>
-                      &copy; {new Date().getFullYear()}, Built with{" "}
-                      <a href="https://www.artticfox.com">Arttic Fox</a>
-                    </div>
-                  </div>
-                </footer>
+                <Footer />
               </ThemeProvider>
             </appContext.Provider>
           </>
