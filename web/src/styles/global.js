@@ -93,8 +93,8 @@ const GlobalStyle = createGlobalStyle`
     color:${props => props.theme.color.type};
     line-height:2em;
     margin:0;
+    margin-bottom: 3em;
 
-    
     ${media.greaterThan("medium")`
       
     `}

@@ -16,7 +16,7 @@ const Footer = props => {
           </li> */}
             <li>
               <LinkS to="/Adoption/" activeClassName="activeMenuItem">
-                Adoption
+                Adopt
               </LinkS>
             </li>
             {/* <li>
@@ -31,14 +31,14 @@ const Footer = props => {
             </li>
             <li>
               <LinkS to="/HowCanWeHelp/" activeClassName="activeMenuItem">
-                How Can We Help
+                How You Can Help
               </LinkS>
             </li>
-            <li>
+            {/* <li>
               <LinkS to="/Events/" activeClassName="activeMenuItem">
                 Events
               </LinkS>
-            </li>
+            </li> */}
             <li>
               <LinkS to="/Contact/" activeClassName="activeMenuItem">
                 Contact

@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState } from "react";
 import Icon from "../../assets/icon";
 import styled from "styled-components";
 import media from "styled-media-query";
@@ -35,7 +35,7 @@ const Header = ({ siteTitle }) => {
           </li> */}
           <li>
             <LinkS to="/Adoption/" activeClassName="activeMenuItem">
-              Adoption
+              Adopt
             </LinkS>
           </li>
           {/* <li>
@@ -50,18 +50,21 @@ const Header = ({ siteTitle }) => {
           </li>
           <li>
             <LinkS to="/HowCanWeHelp/" activeClassName="activeMenuItem">
-              How Can We Help
+              How You Can Help
             </LinkS>
           </li>
-          <li>
+          {/* <li>
             <LinkS to="/Events/" activeClassName="activeMenuItem">
               Events
             </LinkS>
-          </li>
+          </li> */}
           <li>
-            <LinkS to="/Contact/" activeClassName="activeMenuItem">
+            {/* <LinkS to="/Contact/" activeClassName="activeMenuItem">
               Contact
-            </LinkS>
+            </LinkS> */}
+            <a href="mailto:jasperspawsrescue@gmail.com" target="_blank">
+              Contact
+            </a>
           </li>
         </Ul>
       </Nav>
@@ -70,10 +73,12 @@ const Header = ({ siteTitle }) => {
 };
 
 const Container = styled.div`
-  padding: ${({ theme }) => theme.pagePadding};
+  padding: 1% ${({ theme }) => theme.pagePadding};
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: ${({ theme }) => theme.pagePadding};
 `;
 
 const Logo = styled.div``;
@@ -92,6 +97,8 @@ const Nav = styled.div`
 
   a {
     color: ${({ theme }) => theme.color.white};
+
+    font-size: 0.875em;
   }
 
   &.activeMenu {
@@ -105,6 +112,7 @@ const Nav = styled.div`
   background-color: transparent; 
   a{
     color: initial;
+    
   }
   `};
 `;

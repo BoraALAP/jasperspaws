@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from "gatsby";
 import appContext from "../../context/context";
 import appReducer, { initialState } from "../../context/reducer";
 
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { LightTheme, DarkTheme } from "../../styles/theme";
 import GlobalStyle from "../../styles/global";
 import Header from "./Header";
@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
               <ThemeProvider theme={store.theme ? DarkTheme : LightTheme}>
                 <GlobalStyle />
                 <Header siteTitle={data.site.title} />
-                <div>{children}</div>
+                <Content>{children}</Content>
                 <Footer />
               </ThemeProvider>
             </appContext.Provider>
@@ -46,5 +46,9 @@ const Layout = ({ children }) => {
     />
   );
 };
+
+const Content = styled.div`
+  padding: ${({ theme }) => theme.pagePadding};
+`;
 
 export default Layout;
