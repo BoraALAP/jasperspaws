@@ -142,12 +142,15 @@ const Adoption = props => {
       </Content>
       <Title title="Adoption Application" />
       <Detail>
-        <p>
+        <a href="https://forms.gle/kG2Xmb5U3Gg9FnF27" target="_blank">
+          You can fill the form by clicking here.
+        </a>
+        {/* <p>
           Please send your application to{" "}
           <a href="mailto:jasperspawsrescue@gmail.com" target="_blank">
             jasperspawsrescue@gmail.com
           </a>
-        </p>
+        </p> */}
       </Detail>
       <Title title="Happy Tails" />
       <ListingMainHome postNodes={postNodes} />
@@ -161,9 +164,10 @@ const Detail = styled.div`
   display: grid;
   justify-self: center;
   margin: 24px auto;
-  width: max-content;
+  width: fit-content;
   p {
     margin-bottom: 0;
+    text-align: center;
   }
 `;
 

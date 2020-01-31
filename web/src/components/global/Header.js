@@ -78,7 +78,6 @@ const Container = styled.div`
   grid-auto-flow: column;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: ${({ theme }) => theme.pagePadding};
 `;
 
 const Logo = styled.div``;
@@ -160,7 +159,6 @@ const CrossMenu = styled.button`
 
 const LinkS = styled(Link)`
   color: ${({ theme }) => theme.color.five};
-
   font-size: 0.875em;
 `;
 

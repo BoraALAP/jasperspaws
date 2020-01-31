@@ -113,7 +113,7 @@ const IndexPage = props => {
     <Layout>
       <SEO pageTitle="Jasper's Paw" />
       <Comingsoon />
-      <ListingMainHome postNodes={postNodes} adoptable />
+      {/* <ListingMainHome postNodes={postNodes} adoptable /> */}
     </Layout>
   );
 };

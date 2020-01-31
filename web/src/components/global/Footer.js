@@ -40,9 +40,9 @@ const Footer = props => {
               </LinkS>
             </li> */}
             <li>
-              <LinkS to="/Contact/" activeClassName="activeMenuItem">
+              <a href="mailto:jasperspawsrescue@gmail.com" target="_blank">
                 Contact
-              </LinkS>
+              </a>
             </li>
           </Ul>
         </Nav>
@@ -71,6 +71,7 @@ const Nav = styled.div`
 
   a {
     color: ${({ theme }) => theme.color.white};
+    font-size: 0.875em;
   }
 
   ${media.greaterThan("medium")`
