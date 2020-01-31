@@ -117,8 +117,8 @@ const Adoption = props => {
       <Content>
         <p>If you are interested in adopting a dog listed, please fill out the adoption form. </p>
         <p>
-          We will review the adoption form and contact the candidate you if they are a good fit for
-          the dog interested in. Please note that due to high volume of application, we will only
+          We will review the adoption form and contact the candidate if they are a good fit for the
+          dog interested in. Please note that due to high volume of application, we will only
           contact those we feel are the right match for the dog, as we simply do not have the
           resources to respond to every inquiry.
         </p>
@@ -126,9 +126,9 @@ const Adoption = props => {
           Once we review all applications, we will be in contact to complete a home visit. Please
           note that a home visit does not mean that the application has been fully approved, as we
           often conduct multiple home visits for the same dog to find the best match, as our
-          ultimate responsibility is to the dogs. If the candidate is not selected for the dog
-          applied for, but wish to apply for another dog in the future, a second home visit will not
-          be required.
+          ultimate responsibility is to the dogs. If a candidate is not selected for the dog applied
+          for, but wishes to apply for another dog in the future, a second home visit will not be
+          required.
         </p>
         <p>
           Once an application is approved, the adoption is finalized by signing an adoption contract
@@ -168,6 +168,9 @@ const Detail = styled.div`
   p {
     margin-bottom: 0;
     text-align: center;
+  }
+  a {
+    font-size: 0.875em;
   }
 `;
 

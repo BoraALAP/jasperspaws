@@ -35,9 +35,7 @@ const HowCanWeHelp = () => {
       </Content>
       <Title title="Donate" />
       <Content>
-        <p>
-          We are trying to figure out the best way to receive donations. So coming soon for now?
-        </p>
+        <p>Coming Soon!</p>
       </Content>
     </Layout>
   );
