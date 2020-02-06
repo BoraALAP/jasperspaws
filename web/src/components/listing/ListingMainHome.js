@@ -3,6 +3,7 @@ import Grid from "./Grid";
 import appContext from "../../context/context";
 import styled from "styled-components";
 import media from "styled-media-query";
+import Card from "../listing/Card";
 
 const ListingMain = ({ postNodes, adoptable }) => {
   const { store, dispatch } = useContext(appContext);
@@ -26,20 +27,34 @@ const ListingMain = ({ postNodes, adoptable }) => {
     setUsableArray(filtered);
   }, []);
 
-  console.log(usableArray, postNodes, filtered);
-
-  return <Container>{usableArray && <Grid title="Adopable Dogs" nodes={usableArray} />}</Container>;
+  return (
+    <Container>
+      <GridS>
+        {usableArray ? (
+          usableArray.map(node => <Card key={node._id} {...node} />)
+        ) : (
+          <h3>Sorry there is no adoptable pup at the moment</h3>
+        )}
+      </GridS>
+    </Container>
+  );
 };
 
 const Container = styled.div`
   display: grid;
   padding: ${({ theme }) => theme.pagePadding};
   grid-gap: 2.5%;
-  grid-auto-flow: row;
+  grid-auto-flow: column;
 
   ${media.greaterThan("medium")`
-    
     grid-auto-flow: column;
   `}
+`;
+
+const GridS = styled.div`
+  display: grid;
+  grid-gap: 1em 2.5%;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: center;
 `;
 export default ListingMain;

@@ -9,8 +9,6 @@ import media from "styled-media-query";
 import GoodWith from "./GoodWith";
 
 const Card = props => {
-  console.log(props);
-
   return (
     <Link to={getBlogUrl(props.publishedAt, props.slug.current)} key={props._id}>
       <Container>

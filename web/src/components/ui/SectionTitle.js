@@ -15,7 +15,7 @@ const SectionTitle = props => {
 
 const Container = styled.div`
   display: grid;
-  max-width: 500px;
+  max-width: 550px;
   margin-bottom: 1.5em;
 `;
 

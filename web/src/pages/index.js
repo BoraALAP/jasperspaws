@@ -34,6 +34,13 @@ export const query = graphql`
           ages
           ageWrite
           publishedAt
+          goodWiths {
+            goodWith {
+              _id
+              title
+            }
+            _key
+          }
           slug {
             current
           }
@@ -66,12 +73,10 @@ const IndexPage = props => {
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
 
-  console.log(postNodes, data.dog.edges);
-
   return (
     <Layout>
       <SEO pageTitle="Home Page" />
-      <Enterence />
+      {/* <Enterence /> */}
       <HomeListing postNodes={postNodes} />
       <Container>
         <CopyLine>
