@@ -23,7 +23,6 @@ export const query = graphql`
     dog: allSanityDog(
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-      limit: 4
     ) {
       edges {
         node {
@@ -34,6 +33,10 @@ export const query = graphql`
           breed
           ages
           ageWrite
+          publishedAt
+          slug {
+            current
+          }
           mainImage {
             ...SanityImage
             alt
@@ -57,7 +60,11 @@ const IndexPage = props => {
     );
   }
 
-  const postNodes = (data || {}).dog.edges;
+  const postNodes = (data || {}).dog
+    ? mapEdgesToNodes(data.dog)
+        .filter(filterOutDocsWithoutSlugs)
+        .filter(filterOutDocsPublishedInTheFuture)
+    : [];
 
   console.log(postNodes, data.dog.edges);
 

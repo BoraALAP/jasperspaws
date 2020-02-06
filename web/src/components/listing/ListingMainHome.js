@@ -26,6 +26,8 @@ const ListingMain = ({ postNodes, adoptable }) => {
     setUsableArray(filtered);
   }, []);
 
+  console.log(usableArray, postNodes, filtered);
+
   return <Container>{usableArray && <Grid title="Adopable Dogs" nodes={usableArray} />}</Container>;
 };
 
