@@ -109,10 +109,11 @@ const Listing = props => {
     );
   }
 
+  console.log(postNodes);
+
   return (
     <Layout>
       <SEO pageTitle="Adoptable" />
-
       <ListingMain postNodes={postNodes} adoptable />
     </Layout>
   );

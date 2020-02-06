@@ -28,21 +28,26 @@ const Header = ({ siteTitle }) => {
           <Icon symbol="cross" />
         </CrossMenu>
         <Ul>
-          {/* <li>
-            <LinkS to="/Adoptable/" activeClassName="activeMenuItem">
-              Adoptable
+          <li>
+            <LinkS to="/" activeClassName="activeMenuItem">
+              Home
             </LinkS>
-          </li> */}
+          </li>
           <li>
             <LinkS to="/Adoption/" activeClassName="activeMenuItem">
               Adopt
             </LinkS>
           </li>
-          {/* <li>
+          <li>
+            <LinkS to="/Adoptable/" activeClassName="activeMenuItem">
+              Adoptable
+            </LinkS>
+          </li>
+          <li>
             <LinkS to="/HappyTails/" activeClassName="activeMenuItem">
               Happy Tails
             </LinkS>
-          </li> */}
+          </li>
           <li>
             <LinkS to="/About/" activeClassName="activeMenuItem">
               About
@@ -53,18 +58,15 @@ const Header = ({ siteTitle }) => {
               How You Can Help
             </LinkS>
           </li>
-          {/* <li>
+          <li>
             <LinkS to="/Events/" activeClassName="activeMenuItem">
               Events
             </LinkS>
-          </li> */}
+          </li>
           <li>
-            {/* <LinkS to="/Contact/" activeClassName="activeMenuItem">
+            <LinkS to="/Contact/" activeClassName="activeMenuItem">
               Contact
-            </LinkS> */}
-            <a href="mailto:jasperspawsrescue@gmail.com" target="_blank">
-              Contact
-            </a>
+            </LinkS>
           </li>
         </Ul>
       </Nav>

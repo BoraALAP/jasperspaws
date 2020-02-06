@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Button = props => {
   return (
-    <Container onClick={props.onClick}>
+    <Container onClick={props.onClick} secondary={props.secondary}>
       <span>{props.children}</span>
     </Container>
   );
@@ -11,16 +11,16 @@ const Button = props => {
 
 const Container = styled.div`
   padding: 12px 32px;
-  background-color: ${({ theme }) => theme.color.five};
-  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  background-color: ${props =>
+    props.secondary ? props.theme.color.white : props.theme.color.five};
+  font-weight: ${({ theme }) => theme.font.weight.medium};
   font-size: 1em;
   border-radius: ${({ theme }) => theme.radius};
-  color: ${({ theme }) => theme.color.white};
+  color: ${props => (props.secondary ? props.theme.color.five : props.theme.color.white)};
+  border: ${props => (props.secondary ? `1px solid ${props.theme.color.four}` : "none")};
   text-align: center;
-  max-width: 320px;
   box-sizing: border-box;
   box-shadow: ${({ theme }) => theme.buttonshadow};
-  margin: 24px 0;
 `;
 
 export default Button;
