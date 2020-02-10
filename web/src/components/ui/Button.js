@@ -12,7 +12,7 @@ const Button = props => {
 const Container = styled.div`
   padding: 12px 32px;
   background-color: ${props =>
-    props.secondary ? props.theme.color.white : props.theme.color.five};
+    props.secondary ? props.theme.color.white : props.theme.color.four};
   font-weight: ${({ theme }) => theme.font.weight.medium};
   font-size: 1em;
   border-radius: ${({ theme }) => theme.radius};

@@ -14,6 +14,7 @@ import Layout from "../components/global/Layout";
 
 import ListingMain2 from "../components/listing/ListingMain2";
 import ListingMain from "../components/listing/ListingMain";
+import Title from "../components/ui/Title";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -113,7 +114,8 @@ const Listing = props => {
   return (
     <Layout>
       <SEO pageTitle="Happy Tails" />
-
+      <Title title="Happy Tails" />
+      <p>Those guys has been adopted.</p>
       <ListingMain postNodes={postNodes} />
     </Layout>
   );

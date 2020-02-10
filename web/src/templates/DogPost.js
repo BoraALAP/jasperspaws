@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 import DogPostWeb from "../components/post/DogPostWeb";
 import SEO from "../components/seo";
@@ -10,6 +10,7 @@ export const query = graphql`
   query DogPostTemplateQuery($id: String!) {
     dog: sanityDog(id: { eq: $id }) {
       id
+      adopted
       ages
       ageWrite
       breed
@@ -39,6 +40,7 @@ export const query = graphql`
 const DogPostTemplate = props => {
   const { data, errors } = props;
   const dog = data && data.dog;
+
   return (
     <Layout>
       {errors && <SEO pageTitle="GraphQL Error" />}
@@ -55,7 +57,7 @@ const DogPostTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </div>
       )}
-
+      <Link to={props.location.state.prevPath}>back</Link>
       {dog && <DogPostWeb {...dog} />}
     </Layout>
   );

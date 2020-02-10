@@ -80,9 +80,15 @@ const Container = styled.div`
   grid-auto-flow: column;
   justify-content: space-between;
   align-items: center;
+  height: 100px;
 `;
 
-const Logo = styled.div``;
+const Logo = styled.div`
+  height: 100px;
+  img {
+    height: 100%;
+  }
+`;
 
 const Nav = styled.div`
   display: grid;
@@ -95,7 +101,8 @@ const Nav = styled.div`
   background-color: ${({ theme }) => theme.color.five};
   top: 0;
   left: 0;
-
+  z-index: 3000;
+  opacity: 0;
   a {
     color: ${({ theme }) => theme.color.white};
 
@@ -104,10 +111,12 @@ const Nav = styled.div`
 
   &.activeMenu {
     transform: translateX(0);
+    opacity: 1;
   }
 
-  ${media.greaterThan("medium")`
+  ${media.greaterThan("large")`
   transform: translateX(0);
+  opacity: 1;
   position: inherit;
   padding: 0;
   background-color: transparent; 
@@ -125,7 +134,7 @@ const Ul = styled.ul`
   grid-gap: 1em;
   justify-content: start;
 
-  ${media.greaterThan("medium")`
+  ${media.greaterThan("large")`
   justify-content: end;
     grid-auto-flow: column;
   `}
@@ -139,7 +148,7 @@ const HamMenu = styled.button`
   border: none;
   padding: 8px;
   background: transparent;
-  ${media.greaterThan("medium")`
+  ${media.greaterThan("large")`
     display:none;
   `}
 `;
@@ -154,7 +163,7 @@ const CrossMenu = styled.button`
   border: none;
   background: transparent;
   justify-self: end;
-  ${media.greaterThan("medium")`
+  ${media.greaterThan("large")`
     display:none;
   `}
 `;

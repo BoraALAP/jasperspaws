@@ -13,7 +13,7 @@ const Container = styled.div`
   text-align: center;
   justify-content: center;
   display: grid;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 `;
 
 export default Title;

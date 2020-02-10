@@ -1,6 +1,7 @@
 import React from "react";
 import HamburgerIcon from "./hamburger";
 import CrossIcon from "./cross";
+import DownArrow from "./downArrow";
 import { Paw } from "./paw";
 
 function Icon(props) {
@@ -11,6 +12,8 @@ function Icon(props) {
       return <CrossIcon props={props} />;
     case "paw":
       return <Paw props={props} />;
+    case "down":
+      return <DownArrow props={props} />;
     default:
       return <span>Unknown icon: {props.symbol}</span>;
   }

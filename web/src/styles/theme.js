@@ -16,7 +16,7 @@ export const LightTheme = {
   color: {
     bg: "hsla(0, 0%, 100% ,1)", // Beyaz
     bg_low: "hsla(0, 0%, 100%, 0.8)", // Beyaz 0.8
-    two_bg: "hsla(195,100%,44%,0.2)",
+    two_bg: "hsla(195,100%,44%,0.1)",
     five: "hsla(195,100%,6%,1)",
     four: "hsla(205,100%,17%,1)",
     three: "hsla(195,100%,33%,1)",
@@ -28,7 +28,7 @@ export const LightTheme = {
   boxshadowhover: "0px 14px 33px rgba(0, 52, 89, 0.15), inset 2px 2px 7px rgba(0, 52, 89, 0.05)",
   buttonshadow: "0px 4px 10px rgba(0, 0, 0, 0.07), 2px 2px 5px rgba(0, 0, 0, 0.05)",
   radius: "10px",
-  pagePadding: "5%"
+  pagePadding: "5vw"
 };
 
 export const DarkTheme = {

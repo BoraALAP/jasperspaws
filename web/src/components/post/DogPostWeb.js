@@ -6,11 +6,12 @@ import PortableText from "../portableText";
 import styled from "styled-components";
 import media from "styled-media-query";
 import GoodWith from "../listing/GoodWith";
-import NavBar from "./NavBar";
+import Form from "./Form";
 
 const DogPostWeb = props => {
   const {
     _rawBody,
+    adopted,
     mainImage,
     id,
     ages,
@@ -105,8 +106,8 @@ const DogPostWeb = props => {
               ))}
           </TextContainer>
         </Top>
-        <FormContainer></FormContainer>
       </Container>
+      {!adopted && <Form name={name} />}
     </div>
   );
 };
@@ -120,12 +121,12 @@ const Top = styled.div`
 
   ${media.greaterThan("medium")`
     grid-template-columns: 1fr 1fr;
-    grid-gap: 40px;
+    grid-gap: 2.5em;
   `}
 `;
 
 const TextContainer = styled.div`
-  padding: 24px ${({ theme }) => theme.pagePadding};
+  padding: 1.5em ${({ theme }) => theme.pagePadding};
   max-width: 600px;
   ${media.greaterThan("medium")`
   padding: 0;
@@ -136,13 +137,13 @@ const NameBox = styled.div`
   display: grid;
   grid-auto-flow: column;
   justify-content: start;
-  grid-gap: 12px;
+  grid-gap: 1em;
   align-items: end;
 
   h6 {
     color: ${({ theme }) => theme.color.three};
   }
-  margin-bottom: 24px;
+  margin-bottom: 2em;
 `;
 
 const SubInfo = styled.div`
@@ -152,18 +153,22 @@ const SubInfo = styled.div`
   margin-bottom: 1em;
 `;
 
-const Group = styled.div``;
+const Group = styled.div`
+  p {
+    margin-bottom: 0;
+  }
+`;
 
 const BlueContainer = styled.div`
   background-color: ${({ theme }) => theme.color.five};
   border-radius: ${({ theme }) => theme.radius};
-  padding: 8px 24px;
+  padding: 0.5em 1.5em;
   display: grid;
-  grid-gap: 24px;
+  grid-gap: 1.5em;
   grid-auto-flow: column;
   justify-content: space-evenly;
   width: fit-content;
-  margin-top: 24px;
+  margin-top: 1.5em;
   h6 {
     color: ${({ theme }) => theme.color.white};
   }

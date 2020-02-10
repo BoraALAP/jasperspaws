@@ -152,8 +152,6 @@ const Adoption = props => {
           </a>
         </p> */}
       </Detail>
-      <Title title="Happy Tails" />
-      <ListingMainHome postNodes={postNodes} />
     </Layout>
   );
 };

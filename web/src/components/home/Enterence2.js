@@ -12,58 +12,53 @@ import { Link as Connection } from "react-scroll";
 
 const Enterence = props => {
   return (
-    <Container>
-      <H3>
-        <i>
-          There are thousands
-          <br />
-          of stray dogs living <br />
-          on the streets of <br />
-          Turkey.
-        </i>
-      </H3>
-      <Img>
-        <img src={enterenceDog} alt="Sad Pup" />
-      </Img>
-      <Last>
-        <H2>
-          <i>Adopt</i>
-        </H2>
-        <H4>
-          <i>Give Them a Forever Home</i>
-        </H4>
-        <Link to="/Adoptable/">
-          <Button>See the pups</Button>
-        </Link>
-      </Last>
+    <div>
+      <Container>
+        <H3>
+          <i>
+            There are thousands
+            <br />
+            of stray dogs living <br />
+            on the streets of <br />
+            Turkey.
+          </i>
+        </H3>
+        <Img>
+          <img src={enterenceDog} alt="Sad Pup" />
+        </Img>
+        <Last>
+          <H2>
+            <i>Adopt</i>
+          </H2>
+          <H4>
+            <i>Give Them a Forever Home</i>
+          </H4>
+          <Link to="/Adoptable/">
+            <Button>See the pups</Button>
+          </Link>
+        </Last>
+      </Container>
       <Connection to="listing" smooth={true} duration={500} offset={-100}>
         <IconButton>
           <Icon symbol="down" />
         </IconButton>
       </Connection>
-    </Container>
+    </div>
   );
 };
 
 const Container = styled.div`
   display: grid;
   min-height: 70vh;
-  padding: 650px ${({ theme }) => theme.pagePadding} calc(${({ theme }) => theme.pagePadding} * 2);
-  margin-top: -650px;
-  grid-auto-flow: row;
-  align-content: center;
-  justify-content: center;
+  padding: 170px 5vw calc(5vw * 2);
+  margin-top: calc(-5% - 140px);
+  background-color: ${({ theme }) => theme.color.two_bg};
   width: 90vw;
   margin-left: -5vw;
-  background-color: ${({ theme }) => theme.color.two_bg};
-  margin-bottom: 20vh;
-  grid-template-columns: auto;
+  margin-bottom: 6em;
 
   ${Media.greaterThan("medium")`
-  grid-auto-flow: auto;
-  justify-content: normal;
-  grid-template-columns: repeat(3,auto);
-  height: 60vh;
+    grid-template-columns: repeat(3,auto);
   `}
 `;
 
@@ -89,42 +84,33 @@ const H4 = styled.h4`
 
 const Img = styled.div`
   display: grid;
-  position: relative;
   width: 100%;
   align-items: center;
+  align-self: center;
+  justify-items: center;
+  justify-self: center;
   z-index: 10;
-
   img {
-    width: 100%;
+    width: 60%;
   }
-
-  ${Media.greaterThan("small")`
-  
-  img{
-    width: 40vw;
-    
-  }
-  `}
-
   ${Media.greaterThan("medium")`
-  height: inherit;
-  width: 15vw;
-  img{
-    position: absolute;
-    left: -5vw;
-    
-  }
+  width: 10vw;
+    img {
+      width: 500%;
+    }
   `}
 
   ${Media.greaterThan("large")`
-  img{
-    width: 35vw;
-  }`}
+  width: 5vw;
+    img {
+      width: 800%;
+    }
+  `}
 `;
 
 const Last = styled.div`
   display: grid;
-
+  text-align: right;
   align-content: end;
   justify-items: end;
   grid-gap: 0.5em;
@@ -136,9 +122,9 @@ const Last = styled.div`
 `;
 
 const IconButton = styled.div`
-  position: absolute;
-  bottom: calc(-10vw - 15px);
-  left: calc(50vw - 20px);
+  position: relative;
+  bottom: calc(6em + 20px);
+  left: calc(45vw - 20px);
   width: 40px;
   height: 40px;
   background-color: ${({ theme }) => theme.color.five};
@@ -147,6 +133,7 @@ const IconButton = styled.div`
   align-content: center;
   border-radius: 100%;
   box-shadow: ${({ theme }) => theme.buttonshadow};
+  z-index: 400;
 `;
 
 export default Enterence;

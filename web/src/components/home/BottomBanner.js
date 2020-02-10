@@ -39,6 +39,9 @@ const Container = styled.div`
   ${Media.greaterThan("medium")`
   grid-template-columns: 35vw auto;
     grid-auto-flow: column;
+    display: grid;
+    align-items: end;
+    align-content: end;
     
     justify-content: start;
     `}
@@ -50,9 +53,9 @@ const Image = styled.div`
   background-position: right;
   display: grid;
   border-radius: 100%;
-
-  width: 90vw;
-  height: 90vw;
+  justify-self: center;
+  width: 60vw;
+  height: 60vw;
 
   ${Media.greaterThan("medium")`
   width: 40vw;

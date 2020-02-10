@@ -4,6 +4,9 @@ import media from "styled-media-query";
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Poppins:400,500,600,700&display=swap');
 
+  html{
+    overflow-x: hidden;
+  }
   body{
     margin: 0;
     font-size: 1em;

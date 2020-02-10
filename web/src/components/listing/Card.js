@@ -10,7 +10,11 @@ import GoodWith from "./GoodWith";
 
 const Card = props => {
   return (
-    <Link to={getBlogUrl(props.publishedAt, props.slug.current)} key={props._id}>
+    <Link
+      to={getBlogUrl(props.publishedAt, props.slug.current)}
+      key={props._id}
+      state={{ prevPath: location.pathname }}
+    >
       <Container>
         {props.mainImage && props.mainImage.asset && (
           <Img

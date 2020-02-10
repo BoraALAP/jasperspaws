@@ -12,6 +12,7 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../components/global/Layout";
 
+import Title from "../components/ui/Title";
 import ListingMain from "../components/listing/ListingMain";
 
 export const query = graphql`
@@ -114,6 +115,7 @@ const Listing = props => {
   return (
     <Layout>
       <SEO pageTitle="Adoptable" />
+      <Title title="Adoptable Pups" />
       <ListingMain postNodes={postNodes} adoptable />
     </Layout>
   );

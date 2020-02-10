@@ -105,7 +105,7 @@ const ListingMain = ({ postNodes, adoptable }) => {
   return (
     <Container>
       {size < 768 ? (
-        <div>
+        <ContainerS>
           <Button onClick={openModal}>Filters</Button>
           <Modal
             isOpen={modalIsOpen}
@@ -118,7 +118,7 @@ const ListingMain = ({ postNodes, adoptable }) => {
             <Filter nodes={usableArray} />
           </Modal>
           {store.filterExist && <Button onClick={onClear}>Clear Filters</Button>}
-        </div>
+        </ContainerS>
       ) : (
         <Filter nodes={usableArray} />
       )}
@@ -129,13 +129,21 @@ const ListingMain = ({ postNodes, adoptable }) => {
 
 const Container = styled.div`
   display: grid;
-  padding: ${({ theme }) => theme.pagePadding};
-  grid-gap: 2.5%;
+  grid-gap: 2em;
   grid-auto-flow: row;
 
   ${media.greaterThan("medium")`
     grid-template-columns: 30% 67.5%;
     grid-auto-flow: column;
   `}
+
+  ${media.greaterThan("large")`
+  grid-template-columns: 20% 77.5%;
+  `}
+`;
+
+const ContainerS = styled.div`
+  display: grid;
+  grid-gap: 1em;
 `;
 export default ListingMain;

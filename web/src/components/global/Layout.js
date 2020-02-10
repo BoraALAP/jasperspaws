@@ -49,6 +49,7 @@ const Layout = ({ children }) => {
 
 const Content = styled.div`
   padding: ${({ theme }) => theme.pagePadding};
+  grid-gap: 3em;
 `;
 
 export default Layout;
