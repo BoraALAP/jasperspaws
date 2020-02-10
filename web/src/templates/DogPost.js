@@ -41,6 +41,9 @@ const DogPostTemplate = props => {
   const { data, errors } = props;
   const dog = data && data.dog;
 
+  // const prevLink = props.location.state.prevPath;
+  // console.log(prevLink);
+
   return (
     <Layout>
       {errors && <SEO pageTitle="GraphQL Error" />}
@@ -57,7 +60,7 @@ const DogPostTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </div>
       )}
-      <Link to={props.location.state.prevPath}>back</Link>
+      {/* <Link to={prevLink}>back</Link> */}
       {dog && <DogPostWeb {...dog} />}
     </Layout>
   );

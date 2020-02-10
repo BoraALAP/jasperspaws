@@ -13,7 +13,7 @@ import styled from "styled-components";
 import SEO from "../components/seo";
 import Layout from "../components/global/Layout";
 
-import Enterence2 from "../components/home/Enterence2";
+import Enterence from "../components/home/Enterence";
 import HomeListing from "../components/home/HomeListing";
 import BottomBanner from "../components/home/BottomBanner";
 import PawDivider from "../components/ui/decoration/PawDivider";
@@ -76,7 +76,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO pageTitle="Home Page" />
-      <Enterence2 />
+      <Enterence />
       <HomeListing postNodes={postNodes} />
       <Container>
         <CopyLine>
