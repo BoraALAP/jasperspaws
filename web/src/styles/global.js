@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
     font-family:${props => props.theme.font.family.body};
     color:${props => props.theme.color.type};
     background-color: ${props => props.theme.color.bg};
-    overflow-x: hidden;
   }
 
   h1,h2,h3,h4{

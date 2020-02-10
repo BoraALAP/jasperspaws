@@ -76,22 +76,24 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO pageTitle="Home Page" />
-      <Enterence />
-      <HomeListing postNodes={postNodes} />
-      <Container>
-        <CopyLine>
-          <PawDivider />
-          <p>
-            They are mostly abandoned, thriving to survive; some of them found as injured, tortured,
-            and abused. Our goal is to bring as many stray dogs as possible over to Canada, and find
-            forever homes for them to live safely. They all deserve to be loved, taken care of and
-            be part of your families..
-          </p>
-          <PawDivider />
-        </CopyLine>
-        <BottomBanner />
-        <ContainerBG />
-      </Container>
+      <PageContent>
+        <Enterence />
+        <HomeListing postNodes={postNodes} />
+        <Container>
+          <CopyLine>
+            <PawDivider />
+            <p>
+              They are mostly abandoned, thriving to survive; some of them found as injured,
+              tortured, and abused. Our goal is to bring as many stray dogs as possible over to
+              Canada, and find forever homes for them to live safely. They all deserve to be loved,
+              taken care of and be part of your families..
+            </p>
+            <PawDivider />
+          </CopyLine>
+          <BottomBanner />
+          <ContainerBG />
+        </Container>
+      </PageContent>
     </Layout>
   );
 };
@@ -100,10 +102,15 @@ const Container = styled.div`
   position: relative;
 `;
 
+const PageContent = styled.div`
+  display: grid;
+  grid-gap: 4em;
+`;
+
 const CopyLine = styled.div`
   display: grid;
   justify-self: center;
-  margin: calc(${({ theme }) => theme.pagePadding} * 2) auto;
+  margin: 0 auto 3em;
   max-width: 600px;
   p {
     margin: ${({ theme }) => theme.pagePadding};
@@ -117,10 +124,11 @@ const ContainerBG = styled.div`
   background-color: ${({ theme }) => theme.color.three};
   opacity: 0.03;
   border-radius: 100%;
-  height: 90vw;
+  height: 80vw;
   width: 90vw;
   top: -5vw;
   right: -10vw;
+  z-index: -30;
 `;
 
 export default IndexPage;

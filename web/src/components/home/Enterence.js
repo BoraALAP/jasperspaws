@@ -53,7 +53,7 @@ const Container = styled.div`
   padding: 170px 5vw calc(5vw * 2);
   margin-top: calc(-5% - 140px);
   background-color: ${({ theme }) => theme.color.two_bg};
-  width: 90vw;
+  width: 100%;
   margin-left: -5vw;
 
   ${Media.greaterThan("medium")`
@@ -123,7 +123,7 @@ const Last = styled.div`
 const IconButton = styled.div`
   position: relative;
   bottom: 20px;
-  left: calc(45vw - 20px);
+  left: calc(50% - 20px);
   width: 40px;
   height: 40px;
   background-color: ${({ theme }) => theme.color.five};

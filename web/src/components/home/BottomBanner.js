@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import Media from "styled-media-query";
 
@@ -22,9 +23,15 @@ const BottomBanner = props => {
           donations are accepted if you wish to support the organization.
         </p>
         <Buttons>
-          <Button secondary>Volunteer</Button>
-          <Button secondary>Foster</Button>
-          <Button secondary>Donate</Button>
+          <Link to="/HowCanWeHelp/">
+            <Button secondary>Volunteer</Button>
+          </Link>
+          <Link to="/HowCanWeHelp/">
+            <Button secondary>Foster</Button>
+          </Link>
+          <Link to="/Donate/">
+            <Button secondary>Donate</Button>
+          </Link>
         </Buttons>
       </RightBox>
     </Container>
@@ -35,7 +42,7 @@ const Container = styled.div`
   display: grid;
   justify-content: center;
   grid-gap: 32px;
-
+  z-index: 10;
   ${Media.greaterThan("medium")`
   grid-template-columns: 35vw auto;
     grid-auto-flow: column;
@@ -44,7 +51,7 @@ const Container = styled.div`
     align-content: end;
     
     justify-content: start;
-    `}
+    `};
 `;
 
 const Image = styled.div`

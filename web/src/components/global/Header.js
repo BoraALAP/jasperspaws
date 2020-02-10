@@ -8,6 +8,45 @@ import logo from "../../assets/jaspers_paw_logo.png";
 const Header = ({ siteTitle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [nav, setNav] = useState([
+    {
+      name: "Home",
+      path: "/"
+    },
+    {
+      name: "Adopt",
+      path: "/Adoption"
+    },
+    {
+      name: "Adoptable",
+      path: "/Adoptable/"
+    },
+    {
+      name: "Happy Tails",
+      path: "/HappyTails/"
+    },
+    {
+      name: "About",
+      path: "/About/"
+    },
+    {
+      name: "How You Can Help",
+      path: "/HowCanWeHelp/"
+    },
+    {
+      name: "Events",
+      path: "/Events/"
+    },
+    {
+      name: "Contact",
+      path: "/Contact/"
+    },
+    {
+      name: "Donate",
+      path: "/Donate/"
+    }
+  ]);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -28,46 +67,13 @@ const Header = ({ siteTitle }) => {
           <Icon symbol="cross" />
         </CrossMenu>
         <Ul>
-          <li>
-            <LinkS to="/" activeClassName="activeMenuItem">
-              Home
-            </LinkS>
-          </li>
-          <li>
-            <LinkS to="/Adoption/" activeClassName="activeMenuItem">
-              Adopt
-            </LinkS>
-          </li>
-          <li>
-            <LinkS to="/Adoptable/" activeClassName="activeMenuItem">
-              Adoptable
-            </LinkS>
-          </li>
-          <li>
-            <LinkS to="/HappyTails/" activeClassName="activeMenuItem">
-              Happy Tails
-            </LinkS>
-          </li>
-          <li>
-            <LinkS to="/About/" activeClassName="activeMenuItem">
-              About
-            </LinkS>
-          </li>
-          <li>
-            <LinkS to="/HowCanWeHelp/" activeClassName="activeMenuItem">
-              How You Can Help
-            </LinkS>
-          </li>
-          <li>
-            <LinkS to="/Events/" activeClassName="activeMenuItem">
-              Events
-            </LinkS>
-          </li>
-          <li>
-            <LinkS to="/Contact/" activeClassName="activeMenuItem">
-              Contact
-            </LinkS>
-          </li>
+          {nav.map((navItem, index) => (
+            <li key={index}>
+              <LinkS to={navItem.path} activeClassName="activeMenuItem">
+                {navItem.name}
+              </LinkS>
+            </li>
+          ))}
         </Ul>
       </Nav>
     </Container>

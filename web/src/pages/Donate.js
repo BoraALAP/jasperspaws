@@ -6,16 +6,17 @@ import Layout from "../components/global/Layout";
 import SEO from "../components/seo";
 import Title from "../components/ui/Title";
 
-const Events = () => {
+const Donate = props => {
   return (
     <Layout>
-      <SEO pagetitle="Events" />
+      <SEO pageTitle="Donate" />
       <Container>
-        <Title title="Events" />
+        <Title title="Donate" />
       </Container>
     </Layout>
   );
 };
 
 const Container = styled.div``;
-export default Events;
+
+export default Donate;

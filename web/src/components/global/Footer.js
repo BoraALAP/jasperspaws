@@ -59,6 +59,7 @@ const Container = styled.footer`
   padding: 5%;
   background-color: ${({ theme }) => theme.color.four};
   text-align: center;
+  z-index: 30;
 `;
 
 const Nav = styled.div`
