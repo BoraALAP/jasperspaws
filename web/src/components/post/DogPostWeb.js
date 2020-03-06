@@ -6,7 +6,7 @@ import PortableText from "../portableText";
 import styled from "styled-components";
 import media from "styled-media-query";
 import GoodWith from "../listing/GoodWith";
-import Form from "./Form";
+import CardForm from "./CardForm";
 
 const DogPostWeb = props => {
   const {
@@ -95,19 +95,17 @@ const DogPostWeb = props => {
                 </Group>
               )}
             </div>
-            {microchipped ||
-              neutered ||
-              (vacinated && (
-                <BlueContainer>
-                  {microchipped && <h6>Microchipped</h6>}
-                  {neutered && (gender == "male" ? <h6>Neutered</h6> : <h6>Spayed</h6>)}
-                  {vacinated && <h6>Vacinated</h6>}
-                </BlueContainer>
-              ))}
+            {(microchipped || neutered || vacinated) && (
+              <BlueContainer>
+                {microchipped && <h6>Microchipped</h6>}
+                {neutered && (gender == "male" ? <h6>Neutered</h6> : <h6>Spayed</h6>)}
+                {vacinated && <h6>Vacinated</h6>}
+              </BlueContainer>
+            )}
           </TextContainer>
         </Top>
       </Container>
-      {!adopted && <Form name={name} />}
+      {!adopted && <CardForm name={name} />}
     </div>
   );
 };
@@ -142,6 +140,7 @@ const NameBox = styled.div`
 
   h6 {
     color: ${({ theme }) => theme.color.three};
+    margin-bottom: 2px;
   }
   margin-bottom: 2em;
 `;

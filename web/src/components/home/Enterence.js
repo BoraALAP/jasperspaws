@@ -3,10 +3,9 @@ import styled from "styled-components";
 import Media from "styled-media-query";
 import Button from "../ui/Button";
 
-import { Link } from "gatsby";
-
 import enterenceDog from "../../assets/enterenceDog.png";
 import Icon from "../../assets/icon";
+import PageTransition from "../ui/PageTransition";
 
 import { Link as Connection } from "react-scroll";
 
@@ -33,9 +32,9 @@ const Enterence = props => {
           <H4>
             <i>Give Them a Forever Home</i>
           </H4>
-          <Link to="/Adoptable/">
+          <PageTransition to="/Adoptable/">
             <Button>See the pups</Button>
-          </Link>
+          </PageTransition>
         </Last>
       </Container>
       <Connection to="listing" smooth={true} duration={500} offset={-100}>

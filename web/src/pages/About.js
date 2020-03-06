@@ -7,8 +7,6 @@ import SEO from "../components/seo";
 import Title from "../components/ui/Title";
 
 const About = props => {
-  console.log(props);
-
   return (
     <Layout>
       <SEO pageTitle="About" />

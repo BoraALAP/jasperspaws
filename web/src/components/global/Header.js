@@ -1,9 +1,10 @@
-import { Link } from "gatsby";
 import React, { useState } from "react";
+
 import Icon from "../../assets/icon";
 import styled from "styled-components";
 import media from "styled-media-query";
 import logo from "../../assets/jaspers_paw_logo.png";
+import PageTransition from "../ui/PageTransition";
 
 const Header = ({ siteTitle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,10 +34,10 @@ const Header = ({ siteTitle }) => {
       name: "How You Can Help",
       path: "/HowCanWeHelp/"
     },
-    {
-      name: "Events",
-      path: "/Events/"
-    },
+    // {
+    //   name: "Events",
+    //   path: "/Events/"
+    // },
     {
       name: "Contact",
       path: "/Contact/"
@@ -50,12 +51,13 @@ const Header = ({ siteTitle }) => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
   return (
     <Container>
       <Logo>
-        <Link to="/" activeClassName="activeMenuItem">
+        <PageTransition direction="right" to="/">
           <img src={logo} alt={siteTitle} />
-        </Link>
+        </PageTransition>
       </Logo>
 
       <HamMenu onClick={toggleMenu}>
@@ -69,9 +71,9 @@ const Header = ({ siteTitle }) => {
         <Ul>
           {nav.map((navItem, index) => (
             <li key={index}>
-              <LinkS to={navItem.path} activeClassName="activeMenuItem">
+              <PageTransition to={navItem.path} activeClass="activeMenuItem">
                 {navItem.name}
-              </LinkS>
+              </PageTransition>
             </li>
           ))}
         </Ul>
@@ -87,6 +89,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  z-index: 1000;
 `;
 
 const Logo = styled.div`
@@ -172,11 +175,6 @@ const CrossMenu = styled.button`
   ${media.greaterThan("large")`
     display:none;
   `}
-`;
-
-const LinkS = styled(Link)`
-  color: ${({ theme }) => theme.color.five};
-  font-size: 0.875em;
 `;
 
 export default Header;

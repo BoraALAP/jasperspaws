@@ -16,17 +16,19 @@ export const LightTheme = {
   color: {
     bg: "hsla(0, 0%, 100% ,1)", // Beyaz
     bg_low: "hsla(0, 0%, 100%, 0.8)", // Beyaz 0.8
-    two_bg: "hsla(195,100%,44%,0.1)",
+    two_bg: "hsla(195,100%,44%,0.075)",
     five: "hsla(195,100%,6%,1)",
     four: "hsla(205,100%,17%,1)",
     three: "hsla(195,100%,33%,1)",
     two: "hsla(195,100%,44%,1)",
+    one: "hsla(198,68%,96%,1)",
     white: "hsla(0, 0%, 100% ,1)",
     type: "hsla(0,0%,43%,1)" // koyu Gri
   },
   boxshadow: "0px 10px 30px rgba(0, 52, 89, 0.1), inset 2px 2px 7px rgba(0, 52, 89, 0.02)",
   boxshadowhover: "0px 14px 33px rgba(0, 52, 89, 0.15), inset 2px 2px 7px rgba(0, 52, 89, 0.05)",
   buttonshadow: "0px 4px 10px rgba(0, 0, 0, 0.07), 2px 2px 5px rgba(0, 0, 0, 0.05)",
+  buttonshadowhover: "0px 2px 3px rgba(0, 0, 0, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.4)",
   radius: "10px",
   pagePadding: "5vw"
 };

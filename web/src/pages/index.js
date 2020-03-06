@@ -83,10 +83,10 @@ const IndexPage = props => {
           <CopyLine>
             <PawDivider />
             <p>
-              They are mostly abandoned, thriving to survive; some of them found as injured,
-              tortured, and abused. Our goal is to bring as many stray dogs as possible over to
-              Canada, and find forever homes for them to live safely. They all deserve to be loved,
-              taken care of and be part of your families..
+              They are often abandoned, injured, tortured or abused. Struggling to survive on the
+              streets. Our goal is to bring as many of these beautiful souls to Canada as possible,
+              and find them forever loving homes. They all deserve to be loved, taken care of and
+              showered with the same love that they show us.
             </p>
             <PawDivider />
           </CopyLine>

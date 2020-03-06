@@ -71,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   
-  h6{
+  h6, label{
     font-size:0.875em;
     font-weight:${({ theme }) => theme.font.weight.semibold}; 
     color: ${({ theme }) => theme.color.four};

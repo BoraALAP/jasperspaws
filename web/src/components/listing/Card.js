@@ -1,6 +1,6 @@
-import { format } from "date-fns";
-import { Link } from "gatsby";
 import React from "react";
+import PageTransition from "../ui/PageTransition";
+
 import { buildImageObj, cn, getBlogUrl } from "../../lib/helpers";
 import { imageUrlFor } from "../../lib/image-url";
 
@@ -10,11 +10,7 @@ import GoodWith from "./GoodWith";
 
 const Card = props => {
   return (
-    <Link
-      to={getBlogUrl(props.publishedAt, props.slug.current)}
-      key={props._id}
-      // state={{ prevPath: location.pathname }}
-    >
+    <PageTransition to={getBlogUrl(props.publishedAt, props.slug.current)} key={props._id}>
       <Container>
         {props.mainImage && props.mainImage.asset && (
           <Img
@@ -44,7 +40,7 @@ const Card = props => {
           </Bottom>
         </TextContainer>
       </Container>
-    </Link>
+    </PageTransition>
   );
 };
 

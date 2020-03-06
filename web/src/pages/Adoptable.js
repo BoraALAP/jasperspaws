@@ -110,8 +110,6 @@ const Listing = props => {
     );
   }
 
-  console.log(postNodes);
-
   return (
     <Layout>
       <SEO pageTitle="Adoptable" />

@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
+
 import styled from "styled-components";
 import Media from "styled-media-query";
+import PageTransition from "../ui/PageTransition";
 
 import SectionTitle from "../ui/SectionTitle";
 import Button from "../ui/Button";
@@ -23,15 +24,15 @@ const BottomBanner = props => {
           donations are accepted if you wish to support the organization.
         </p>
         <Buttons>
-          <Link to="/HowCanWeHelp/">
+          <PageTransition to="/HowCanWeHelp/">
             <Button secondary>Volunteer</Button>
-          </Link>
-          <Link to="/HowCanWeHelp/">
+          </PageTransition>
+          <PageTransition to="/HowCanWeHelp/">
             <Button secondary>Foster</Button>
-          </Link>
-          <Link to="/Donate/">
+          </PageTransition>
+          <PageTransition to="/Donate/">
             <Button secondary>Donate</Button>
-          </Link>
+          </PageTransition>
         </Buttons>
       </RightBox>
     </Container>

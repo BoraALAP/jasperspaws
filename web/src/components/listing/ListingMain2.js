@@ -9,7 +9,6 @@ import Button from "../ui/Button";
 
 const ListingMain2 = ({ postNodes, adoptable }) => {
   const { store, dispatch } = useContext(appContext);
-
   const [usableArray, setUsableArray] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [size, setSize] = useState(0);
@@ -72,13 +71,6 @@ const ListingMain2 = ({ postNodes, adoptable }) => {
             return false;
           }
         });
-
-        // const together = [...usableArray, ...arr];
-        // const newArr = together.filter((elem, pos, arr) => {
-        //   if (elem !== null && elem !== undefined) {
-        //     return arr.indexOf(elem) == pos;
-        //   }
-        // });
       } else {
         setUsableArray([...filteredArray]);
       }
